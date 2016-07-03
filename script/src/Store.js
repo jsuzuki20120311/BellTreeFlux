@@ -1,15 +1,18 @@
 export default class Store {
 
 
-	constructor(eventNameArray = []) {
-		this.events = {};
-		eventNameArray.reduce((eventName) => {
-			this.events[eventName] = [];
-		});
+	constructor() {
+		this.data = {};
 	}
 
 
 	on(eventName, callback) {
+		if (!this.events) {
+			this.events = {};
+		}
+		if (!this.events[eventName]) {
+			this.events[eventName] = [];
+		}
 		this.events[eventName].push(callback);
 	}
 
@@ -37,9 +40,10 @@ export default class Store {
 		if (!this.events[eventName]) {
 			return;
 		}
-		this.events[eventName].reduce((fn) => {
-			fn();
-		});
+		for (let i = 0; i < this.events[eventName].length; i++) {
+				let fn = this.events[eventName][i];
+				fn(this.data);
+		}
 	}
 
 }
