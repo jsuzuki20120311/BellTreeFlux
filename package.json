@@ -2,7 +2,7 @@
   "name": "bell-tree-flux",
   "version": "0.9.0",
   "description": "",
-  "main": "./script/src/index.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Elorror: no test specified\" && exit 1"
   },

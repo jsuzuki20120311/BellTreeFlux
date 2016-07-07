@@ -11,33 +11,39 @@ export default class Dispatcher {
 		return Dispatcher.instance;
 	}
 
-
-	register(eventName, callback) {
-		if (!this.events) {
-			this.events = {};
-		}
-		if (!this.events[eventName]) {
-			this.events[eventName] = [];
-		}
-		this.events[eventName].push(callback);
+	constructor() {
+		this.handlers = {};
 	}
 
-	
-	remove(eventName, callback) {
-		const index = this.events[eventName].indexOf();
+	setStore(store) {
+		if (!store || !store.emit) {
+			throw new Error('illegal argument.');
+		}
+		this.store = store;
+	}
+
+	register(actionType, callback) {
+		if (!this.handlers[actionType]) {
+			this.handlers[actionType] = [];
+		}
+		this.handlers[actionType].push(callback);
+	}
+
+	remove(actionType, callback) {
+		const index = this.handlers[actionType].indexOf();
 		if (index === -1) {
 			return;
 		}
-		this.events[eventName].splice(index, callback);
+		this.handlers[actionType].splice(index, callback);
 	}
 
 	dispatch(payload) {
-		if (!this.events[payload.eventName]) {
+		if (!this.handlers[payload.actionType]) {
 			return;
 		}
-		for (let i = 0; i < this.events[payload.eventName].length; i++) {
-			let fn = this.events[payload.eventName][i];
-			fn(this.data);
+		for (let i = 0; i < this.handlers[payload.actionType].length; i++) {
+			let handler = this.handlers[payload.actionType][i];
+			this.store.emit(handler);
 		}
 	}
 
