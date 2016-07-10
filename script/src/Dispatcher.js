@@ -1,6 +1,9 @@
 'use strict';
 
 
+// LICENSE: MIT
+
+
 /**
  * Dispatcherクラス
  */
