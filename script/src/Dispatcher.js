@@ -3,7 +3,7 @@
 
 export default class Dispatcher {
 
-
+	
 	static getDispatcher() {
 		if (!Dispatcher.instance) {
 			Dispatcher.instance = new Dispatcher();
@@ -23,6 +23,12 @@ export default class Dispatcher {
 	}
 
 	register(actionType, callback) {
+		if (this.handlers[actionType]) {
+			const index = this.handlers[actionType].indexOf(callback);
+			if (index !== -1) {
+				return;
+			}
+		}
 		if (!this.handlers[actionType]) {
 			this.handlers[actionType] = [];
 		}
@@ -30,11 +36,11 @@ export default class Dispatcher {
 	}
 
 	remove(actionType, callback) {
-		const index = this.handlers[actionType].indexOf();
+		const index = this.handlers[actionType].indexOf(callback);
 		if (index === -1) {
 			return;
 		}
-		this.handlers[actionType].splice(index, callback);
+		this.handlers[actionType].splice(index, 1);
 	}
 
 	dispatch(payload) {
@@ -43,7 +49,7 @@ export default class Dispatcher {
 		}
 		for (let i = 0; i < this.handlers[payload.actionType].length; i++) {
 			let handler = this.handlers[payload.actionType][i];
-			this.store.emit(handler);
+			this.store.emit(handler, payload);
 		}
 	}
 
