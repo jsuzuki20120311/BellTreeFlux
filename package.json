@@ -2,10 +2,10 @@
   "name": "bell-tree-flux",
   "version": "0.9.4",
   "description": "",
-  "main": "./script/dist/main.js",
+  "main": "./dist/main.js",
   "scripts": {
-    "build": "babel ./script/src --out-dir ./script/dist",
-    "watch": "babel ./script/src --out-dir ./script/dist --watch --source-maps-inline",
+    "build": "babel ./src --out-dir ./dist",
+    "watch": "babel ./src --out-dir ./dist --watch --source-maps-inline",
     "test": "echo \"Elorror: no test specified\" && exit 1"
   },
   "keywords": [],
