@@ -7,7 +7,7 @@
 /**
  * Dispatcherクラス
  */
-export default class Dispatcher {
+class Dispatcher {
 
 	/**
 	 * Dispatcherインスタンスを取得します。
@@ -104,4 +104,6 @@ export default class Dispatcher {
 		}
 	}
 
-};
+}
+
+export default Dispatcher;
