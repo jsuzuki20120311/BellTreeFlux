@@ -1,6 +1,6 @@
 {
   "name": "bell-tree-flux",
-  "version": "0.9.4",
+  "version": "0.9.4.1",
   "description": "",
   "main": "./dist/main.js",
   "scripts": {
