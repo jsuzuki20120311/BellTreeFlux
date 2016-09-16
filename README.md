@@ -16,3 +16,7 @@ npm install bell-tree-flux --save
 ```javascript
 var BellTreeFlux = require('bell-tree-flux');
 ```
+
+## License
+
+MIT
