@@ -1,14 +1,14 @@
 {
   "name": "bell-tree-flux",
   "version": "0.9.4.2",
-  "description": "",
+  "description": "Simple flux library.",
   "main": "./dist/main.js",
   "scripts": {
     "build": "babel ./src --out-dir ./dist",
     "watch": "babel ./src --out-dir ./dist --watch --source-maps-inline",
     "test": "echo \"Elorror: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["flux"],
   "author": "jBellTree",
   "license": "MIT",
   "dependencies": {},
