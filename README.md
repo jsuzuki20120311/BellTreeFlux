@@ -8,7 +8,7 @@
 Simple flux library.
 
 * sample project https://github.com/jsuzuki20120311/bell-tree-flux-sample
-* demo http://belltree.tokyo:8080/jot_down2/editor/
+* demo http://belltree.tokyo:3000/bell-tree-flux-sample/
 
 
 ## install
