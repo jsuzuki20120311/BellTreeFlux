@@ -1,6 +1,6 @@
 {
   "name": "bell-tree-flux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple flux library.",
   "main": "./dist/main.js",
   "scripts": {
