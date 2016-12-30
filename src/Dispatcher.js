@@ -52,7 +52,7 @@ class Dispatcher {
       throw new Error('Illegal argument. Action type must be string.');
     }
     if (typeof callback !== 'function') {
-      throw new Error('Illegal argument. Action type must be function.');
+      throw new Error('Illegal argument. Callback must be function.');
     }
     if (!this.handlers[actionType]) {
       this.handlers[actionType] = [];
